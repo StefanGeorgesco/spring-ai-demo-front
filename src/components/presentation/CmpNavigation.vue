@@ -4,8 +4,10 @@ import { RouterLink } from 'vue-router';
 
 <template>
   <nav>
-    <RouterLink to="/">Accueil</RouterLink>
-    <RouterLink to="/list">Liste</RouterLink>
+    <RouterLink to="/">Chat</RouterLink>
+    <RouterLink to="/products">Produits</RouterLink>
+    <RouterLink to="/sales-history">Ventes</RouterLink>
+    <RouterLink to="/inventory-history">Stock</RouterLink>
   </nav>
 </template>
 

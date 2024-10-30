@@ -5,29 +5,43 @@ import { ref } from 'vue';
 import { useSpinnerStore } from '@/stores/spinner';
 
 const query = ref('');
-const response = ref('');
-const store = useSpinnerStore();
+const response = ref({
+  response: '',
+  success: true,
+});
+const spinnerStore = useSpinnerStore();
 
 async function onSend() {
-  store.show();
-  response.value = (await chat(query.value)).replaceAll('\n', '<br />');
-  store.hide();
+  response.value = {
+    response: '',
+    success: true,
+  };
+  spinnerStore.showSpinner();
+  const data = await chat(query.value);
+  response.value = {
+    ...data,
+    response: data.response.replaceAll('\n', '<br />'),
+  };
+  spinnerStore.hideSpinner();
 }
 </script>
 
 <template>
   <Card>
-    <template #title>
-      <pre>Posez-moi votre question</pre>
-    </template>
+    <template #title> Posez-moi votre question ici : </template>
     <template #content>
-      <input
+      <textarea
+        rows="4"
         class="form-control m-1"
         placeholder="Entrez votre question ici"
         v-model="query"
-      />
+      ></textarea>
       <button @click="onSend()" class="btn btn-primary mt-1">Envoyer</button>
-      <div class="mt-3" v-html="response"></div>
+      <div
+        class="mt-3"
+        v-html="response.response"
+        v-bind:class="{ 'text-danger': !response.success }"
+      ></div>
     </template>
   </Card>
 </template>

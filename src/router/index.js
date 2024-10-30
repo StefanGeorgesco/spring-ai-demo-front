@@ -6,13 +6,23 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: 'Accueil',
+      name: 'Chat',
       component: ViewHome,
     },
     {
-      path: '/list',
-      name: 'Liste des produits',
+      path: '/products',
+      name: 'Produits',
       component: () => import('../views/ViewProductList.vue'),
+    },
+    {
+      path: '/sales-history',
+      name: 'Historique des ventes',
+      component: () => import('../views/ViewSalesHistoryList.vue'),
+    },
+    {
+      path: '/inventory-history',
+      name: 'Historique du stock',
+      component: () => import('../views/ViewInventoryHistoryList.vue'),
     },
   ],
 });

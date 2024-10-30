@@ -2,12 +2,12 @@ import { defineStore } from 'pinia';
 import { ref } from 'vue';
 
 export const useSpinnerStore = defineStore('spinner', () => {
-  const shown = ref(false);
-  function show() {
-    shown.value = true;
+  const spinnerShown = ref(false);
+  function showSpinner() {
+    spinnerShown.value = true;
   }
-  function hide() {
-    shown.value = false;
+  function hideSpinner() {
+    spinnerShown.value = false;
   }
-  return { shown, show, hide };
+  return { spinnerShown, showSpinner, hideSpinner };
 });

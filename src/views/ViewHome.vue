@@ -11,6 +11,6 @@ const store = useSpinnerStore();
     <template #title>Bienvenue</template>
 
     <QueryForm />
-    <CmpSpinner v-if="store.shown" />
+    <CmpSpinner v-if="store.spinnerShown" />
   </layout-view>
 </template>

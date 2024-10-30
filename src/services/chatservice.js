@@ -6,5 +6,5 @@ export async function chat(query) {
   const { data } = await axios.post(URL, {
     query,
   });
-  return data.response;
+  return data;
 }
