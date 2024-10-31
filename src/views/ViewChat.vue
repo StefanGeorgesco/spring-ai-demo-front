@@ -8,7 +8,7 @@ const store = useSpinnerStore();
 
 <template>
   <layout-view>
-    <template #title>Bienvenue</template>
+    <template #title>Chat</template>
 
     <QueryForm />
     <CmpSpinner v-if="store.spinnerShown" />

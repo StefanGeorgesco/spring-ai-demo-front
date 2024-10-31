@@ -1,7 +1,5 @@
 <script setup>
-import { useRoute, useRouter } from 'vue-router';
-
-const route = useRoute();
+import { useRouter } from 'vue-router';
 
 const router = useRouter();
 
@@ -15,7 +13,7 @@ router.beforeEach(to => {
   <div class="navbar bg-light">
     <div class="container">
       <a class="navbar-brand text-secondary" href="#">
-        <h2>Analyste IA / {{ route.name }}</h2>
+        <h2>Analyste IA</h2>
       </a>
       <div class="d-flex align-items-center">
         <span class="details">
@@ -29,13 +27,13 @@ router.beforeEach(to => {
 <style scoped>
 .navbar {
   height: 50px;
-  transition: height 0.5s ease;
+  transition: height 0.3s ease;
   flex-wrap: nowrap;
 }
 
 .details {
   opacity: 0;
-  transition: opacity 1s ease;
+  transition: opacity 0.3s ease;
 }
 
 .navbar:hover {

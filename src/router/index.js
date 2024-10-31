@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import ViewHome from '@/views/ViewHome.vue';
+import ViewChat from '@/views/ViewChat.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -7,7 +7,7 @@ const router = createRouter({
     {
       path: '/',
       name: 'Chat',
-      component: ViewHome,
+      component: ViewChat,
     },
     {
       path: '/products',

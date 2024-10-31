@@ -1,0 +1,10 @@
+.vscode/
+dist/
+node_modules
+public
+.gitignore
+Dockerfile
+.editorconfig
+.prettierrc.json
+eslint.config.js
+package-lock.json

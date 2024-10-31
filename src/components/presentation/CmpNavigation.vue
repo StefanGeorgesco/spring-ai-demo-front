@@ -14,7 +14,7 @@ import { RouterLink } from 'vue-router';
 <style scoped>
 nav {
   width: 100%;
-  font-size: 12px;
+  font-size: 18px;
   text-align: center;
 }
 
