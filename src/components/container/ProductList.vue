@@ -16,7 +16,7 @@ const currentProduct = ref(null);
       @click="currentProduct = currentProduct !== product ? product : null"
     >
       <div class="flex flex-column">
-        <div class="m-2">{{ product.description }} - {{ product.price }}</div>
+        <div class="m-2">{{ product.name }}</div>
 
         <Transition>
           <div

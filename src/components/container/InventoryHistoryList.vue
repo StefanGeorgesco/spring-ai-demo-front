@@ -22,8 +22,8 @@ const currentInventoryHistoryPoint = ref(null);
     >
       <div class="flex flex-column">
         <div class="m-2">
-          Semaine du {{ inventoryHistoryPoint.weekStartDate }},
-          {{ inventoryHistoryPoint.product.description }} :
+          Semaine du {{ inventoryHistoryPoint.weekStartDate }} :
+          {{ inventoryHistoryPoint.product.name }} /
           {{ inventoryHistoryPoint.stockQuantity }}
         </div>
 

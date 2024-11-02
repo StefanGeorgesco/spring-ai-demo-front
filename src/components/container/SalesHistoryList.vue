@@ -22,10 +22,9 @@ const currentSalesHistoryPoint = ref(null);
     >
       <div class="flex flex-column">
         <div class="m-2">
-          Semaine du {{ salesHistoryPoint.weekStartDate }},
-          {{ salesHistoryPoint.product.description }} :
-          {{ salesHistoryPoint.salesAmount }} (quantité
-          {{ salesHistoryPoint.quantitySold }})
+          Semaine du {{ salesHistoryPoint.weekStartDate }} :
+          {{ salesHistoryPoint.quantitySold }} x
+          {{ salesHistoryPoint.product.name }}
         </div>
 
         <Transition>

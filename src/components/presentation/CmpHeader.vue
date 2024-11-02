@@ -13,7 +13,7 @@ router.beforeEach(to => {
   <div class="navbar bg-light">
     <div class="container">
       <a class="navbar-brand text-secondary" href="#">
-        <h2>Analyste IA</h2>
+        <h2>Assistant IA</h2>
       </a>
       <div class="d-flex align-items-center">
         <span class="details">

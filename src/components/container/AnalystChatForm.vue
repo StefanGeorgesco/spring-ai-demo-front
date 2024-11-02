@@ -1,6 +1,6 @@
 <script setup>
 import Card from 'primevue/card';
-import { chat } from '@/services/chatservice';
+import { analystChat } from '@/services/chatservice';
 import { ref } from 'vue';
 import { useSpinnerStore } from '@/stores/spinner';
 
@@ -17,7 +17,7 @@ async function onSend() {
     success: true,
   };
   spinnerStore.showSpinner();
-  const data = await chat(query.value);
+  const data = await analystChat(query.value);
   response.value = {
     ...data,
     response: data.response.replaceAll('\n', '<br />'),

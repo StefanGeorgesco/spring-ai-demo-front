@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeEach } from 'vitest';
 
 import { mount } from '@vue/test-utils';
-import ViewHome from '@/views/ViewChat.vue';
+import ViewHome from '@/views/ViewAnalystChat.vue';
 import { createApp } from 'vue';
 import App from '@/App.vue';
 import { createPinia } from 'pinia';

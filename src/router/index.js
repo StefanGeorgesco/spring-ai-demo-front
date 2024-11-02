@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import ViewChat from '@/views/ViewChat.vue';
+import ViewAnalystChat from '@/views/ViewAnalystChat.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -7,7 +7,12 @@ const router = createRouter({
     {
       path: '/',
       name: 'Chat',
-      component: ViewChat,
+      component: ViewAnalystChat,
+    },
+    {
+      path: '/recommendations',
+      name: 'Recommandations',
+      component: () => import('../views/ViewRecommendationChat.vue'),
     },
     {
       path: '/products',
