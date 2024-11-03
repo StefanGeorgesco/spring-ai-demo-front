@@ -5,6 +5,7 @@ import { ref } from 'vue';
 import { useSpinnerStore } from '@/stores/spinner';
 
 const query = ref('');
+const showDetails = ref(false);
 const response = ref({
   response: '',
   success: true,
@@ -15,6 +16,7 @@ async function onSend() {
   response.value = {
     response: '',
     success: true,
+    details: '',
   };
   spinnerStore.showSpinner();
   const data = await analystChat(query.value);
@@ -37,10 +39,32 @@ async function onSend() {
         v-model="query"
       ></textarea>
       <button @click="onSend()" class="btn btn-primary mt-1">Envoyer</button>
-      <div
-        class="mt-3"
-        v-html="response.response"
-      ></div>
+      <div class="my-4" v-html="response.response"></div>
+      <div class="form-check form-switch">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          id="flexSwitchCheck"
+          value="test"
+          v-model="showDetails"
+        />
+        <label class="form-check-label" for="flexSwitchCheck">Détail</label>
+      </div>
+      <div v-if="showDetails">
+        <div v-if="response.details?.sql" class="mt-3 bg-light rounded p-3">
+          <code>
+            <p>SQL :</p>
+            <pre>{{ response.details?.sql?.trim() }}</pre>
+          </code>
+        </div>
+        <div
+          v-if="response.details?.data"
+          class="mt-3 bg-secondary rounded p-3 text-white"
+        >
+          <p>Données :</p>
+          <pre>{{ response.details?.data }}</pre>
+        </div>
+      </div>
     </template>
   </Card>
 </template>
