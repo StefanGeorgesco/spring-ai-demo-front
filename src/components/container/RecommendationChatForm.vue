@@ -40,7 +40,6 @@ async function onSend() {
       <div
         class="mt-3"
         v-html="response.response"
-        v-bind:class="{ 'text-danger': !response.success }"
       ></div>
     </template>
   </Card>
