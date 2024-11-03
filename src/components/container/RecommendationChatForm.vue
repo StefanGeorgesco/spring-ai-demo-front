@@ -5,24 +5,28 @@ import { ref } from 'vue';
 import { useSpinnerStore } from '@/stores/spinner';
 
 const query = ref('');
+let conversationId = 0;
+let conversationInProgress = false;
 const response = ref({
   response: '',
   success: true,
 });
 const spinnerStore = useSpinnerStore();
 
-async function onSend() {
+async function onRequest(newConsersation = true) {
   response.value = {
     response: '',
     success: true,
   };
   spinnerStore.showSpinner();
-  const data = await RAGChat(query.value);
+  if (newConsersation) conversationId = Math.floor(Math.random() * 100000);
+  const data = await RAGChat(query.value, conversationId);
   response.value = {
     ...data,
     response: data.response.replaceAll('\n', '<br />'),
   };
   spinnerStore.hideSpinner();
+  conversationInProgress = true;
 }
 </script>
 
@@ -36,11 +40,22 @@ async function onSend() {
         placeholder="Entrez votre question ici"
         v-model="query"
       ></textarea>
-      <button @click="onSend()" class="btn btn-primary mt-1">Envoyer</button>
-      <div
-        class="mt-3"
-        v-html="response.response"
-      ></div>
+      <button
+        :disabled="!query"
+        @click="onRequest()"
+        class="btn btn-primary mt-1"
+      >
+        {{ conversationInProgress ? 'Nouvelle demande' : 'Demande' }}
+      </button>
+      <button
+        v-if="conversationInProgress"
+        :disabled="!query"
+        @click="onRequest(false)"
+        class="btn btn-secondary mt-1 ms-1"
+      >
+        Suite
+      </button>
+      <div class="mt-3" v-html="response.response"></div>
     </template>
   </Card>
 </template>

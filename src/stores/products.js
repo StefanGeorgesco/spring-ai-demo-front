@@ -5,22 +5,22 @@ const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
 
 export const useProductStore = defineStore('productStore', {
   state: () => ({
-    products: [],
-    salesHistory: [],
-    inventoryHistory: [],
+    produits: [],
+    historiqueDeVentes: [],
+    historiqueDeStock: [],
   }),
   actions: {
     async getProducts() {
       const { data } = await axios.get(`${apiBaseUrl}/product`);
-      this.products = data;
+      this.produits = data;
     },
     async getSalesHistory() {
       const { data } = await axios.get(`${apiBaseUrl}/sales-history`);
-      this.salesHistory = data;
+      this.historiqueDeVentes = data;
     },
     async getInventoryHistory() {
       const { data } = await axios.get(`${apiBaseUrl}/inventory-history`);
-      this.inventoryHistory = data;
+      this.historiqueDeStock = data;
     },
   },
 });

@@ -4,35 +4,35 @@ import { onMounted, ref } from 'vue';
 
 const store = useProductStore();
 onMounted(() => store.getInventoryHistory());
-const currentInventoryHistoryPoint = ref(null);
+const pointHistoriqueDeStockCourant = ref(null);
 </script>
 
 <template>
   <ul class="list-group">
     <li
       class="list-group-item"
-      v-for="inventoryHistoryPoint in store.inventoryHistory"
-      :key="inventoryHistoryPoint.id"
+      v-for="pointHistoriqueDeStock in store.historiqueDeStock"
+      :key="pointHistoriqueDeStock.id"
       @click="
-        currentInventoryHistoryPoint =
-          currentInventoryHistoryPoint !== inventoryHistoryPoint
-            ? inventoryHistoryPoint
+        pointHistoriqueDeStockCourant =
+          pointHistoriqueDeStockCourant !== pointHistoriqueDeStock
+            ? pointHistoriqueDeStock
             : null
       "
     >
       <div class="flex flex-column">
         <div class="m-2">
-          Semaine du {{ inventoryHistoryPoint.weekStartDate }} :
-          {{ inventoryHistoryPoint.product.name }} /
-          {{ inventoryHistoryPoint.stockQuantity }}
+          Semaine du {{ pointHistoriqueDeStock.dateDebutSemaine }} :
+          {{ pointHistoriqueDeStock.produit.nom }} /
+          {{ pointHistoriqueDeStock.quantiteEnStock }}
         </div>
 
         <Transition>
           <div
             class="bg-secondary rounded p-3 text-white"
-            v-if="currentInventoryHistoryPoint == inventoryHistoryPoint"
+            v-if="pointHistoriqueDeStockCourant == pointHistoriqueDeStock"
           >
-            <pre>{{ inventoryHistoryPoint }}</pre>
+            <pre>{{ pointHistoriqueDeStock }}</pre>
           </div>
         </Transition>
       </div>

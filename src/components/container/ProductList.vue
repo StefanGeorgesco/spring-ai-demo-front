@@ -11,19 +11,19 @@ const currentProduct = ref(null);
   <ul class="list-group">
     <li
       class="list-group-item"
-      v-for="product in store.products"
-      :key="product.id"
-      @click="currentProduct = currentProduct !== product ? product : null"
+      v-for="produit in store.produits"
+      :key="produit.id"
+      @click="currentProduct = currentProduct !== produit ? produit : null"
     >
       <div class="flex flex-column">
-        <div class="m-2">{{ product.name }}</div>
+        <div class="m-2">{{ produit.nom }}</div>
 
         <Transition>
           <div
             class="bg-secondary rounded p-3 text-white"
-            v-if="currentProduct == product"
+            v-if="currentProduct == produit"
           >
-            <pre>{{ product }}</pre>
+            <pre>{{ produit }}</pre>
           </div>
         </Transition>
       </div>

@@ -9,9 +9,10 @@ export async function analystChat(query) {
   return data;
 }
 
-export async function RAGChat(query) {
+export async function RAGChat(query, conversationId) {
   const { data } = await axios.post(`${apiBaseUrl}/rag`, {
     query,
+    conversationId,
   });
   return data;
 }
