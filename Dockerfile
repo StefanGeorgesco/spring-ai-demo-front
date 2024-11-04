@@ -1,5 +1,3 @@
-# image : stefangeorgesco/dmp-oauth-frontend
-
 FROM node:20-alpine as build
 
 WORKDIR /app

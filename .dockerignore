@@ -1,7 +1,6 @@
 .vscode/
 dist/
 node_modules
-public
 .gitignore
 Dockerfile
 .editorconfig
