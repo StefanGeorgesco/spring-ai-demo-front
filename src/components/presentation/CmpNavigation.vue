@@ -4,8 +4,8 @@ import { RouterLink } from 'vue-router';
 
 <template>
   <nav>
-    <RouterLink to="/">Analyste</RouterLink>
     <RouterLink to="/recommendations">Recommandations</RouterLink>
+    <RouterLink to="/analyst">Analyste</RouterLink>
     <RouterLink to="/products">Produits</RouterLink>
     <RouterLink to="/sales-history">Ventes</RouterLink>
     <RouterLink to="/inventory-history">Stock</RouterLink>
@@ -19,8 +19,13 @@ nav {
   text-align: center;
 }
 
+nav a {
+  color: gray;
+}
+
 nav a.router-link-exact-active {
   color: var(--color-text);
+  font-weight: 600;
 }
 
 nav a.router-link-exact-active:hover {
@@ -28,6 +33,7 @@ nav a.router-link-exact-active:hover {
 }
 
 nav a {
+  text-decoration: none;
   display: inline-block;
   padding: 0 0.5rem;
   border-left: 1px solid var(--color-border);

@@ -32,14 +32,14 @@ async function onRequest(newConsersation = true) {
 
 <template>
   <Card>
-    <template #title> Posez-moi votre question ici : </template>
+    <template #title>Quelle est votre recherche ?</template>
     <template #content>
       <textarea
         rows="4"
         class="form-control m-1"
-        placeholder="Entrez votre question ici"
-        v-model="query"
-      ></textarea>
+        placeholder="Formulez votre question ici..."
+        v-model="query">
+    </textarea>
       <button
         :disabled="!query"
         @click="onRequest()"

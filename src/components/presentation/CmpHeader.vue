@@ -13,7 +13,7 @@ router.beforeEach(to => {
   <div class="navbar bg-light">
     <div class="container">
       <a class="navbar-brand text-secondary" href="#">
-        <h2>Assistant IA</h2>
+        <RouterLink to="/recommendations"><h2>Assistant IA</h2></RouterLink>
       </a>
       <div class="d-flex align-items-center">
         <span class="details">
@@ -31,16 +31,21 @@ router.beforeEach(to => {
   flex-wrap: nowrap;
 }
 
+.navbar:hover {
+  height: 100px;
+}
+
 .details {
   opacity: 0;
   transition: opacity 0.3s ease;
 }
 
-.navbar:hover {
-  height: 100px;
-}
-
 .navbar:hover .details {
   opacity: 1;
+}
+
+.navbar a {
+  color: inherit;
+  text-decoration: none;
 }
 </style>

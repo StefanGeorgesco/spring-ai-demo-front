@@ -1,16 +1,12 @@
-<script setup lang="ts">
-import CmpSpinner from '@/components/container/CmpSpinner.vue';
+<script setup>
 import AnalystChatForm from '@/components/container/AnalystChatForm.vue';
-import { useSpinnerStore } from '@/stores/spinner';
-
-const store = useSpinnerStore();
 </script>
 
 <template>
   <layout-view>
-    <template #title>Chat analyste</template>
-
+    <template #title>
+      Chat analyste <small>(génération de code - SQL)</small>
+    </template>
     <AnalystChatForm />
-    <CmpSpinner v-if="store.spinnerShown" />
   </layout-view>
 </template>

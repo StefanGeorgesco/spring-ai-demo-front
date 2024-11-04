@@ -30,14 +30,14 @@ async function onSend() {
 
 <template>
   <Card>
-    <template #title> Posez-moi votre question ici : </template>
+    <template #title>Quelle est votre recherche ?</template>
     <template #content>
       <textarea
         rows="4"
         class="form-control m-1"
-        placeholder="Entrez votre question ici"
-        v-model="query"
-      ></textarea>
+        placeholder="Formulez votre question ici..."
+        v-model="query">
+      </textarea>
       <button @click="onSend()" class="btn btn-primary mt-1">Envoyer</button>
       <div class="my-4" v-html="response.response"></div>
       <div class="form-check form-switch">
@@ -53,7 +53,7 @@ async function onSend() {
       <div v-if="showDetails">
         <div v-if="response.details?.sql" class="mt-3 bg-light rounded p-3">
           <code>
-            <p>SQL :</p>
+            <p>Requête SQL :</p>
             <pre>{{ response.details?.sql?.trim() }}</pre>
           </code>
         </div>
@@ -61,7 +61,7 @@ async function onSend() {
           v-if="response.details?.data"
           class="mt-3 bg-secondary rounded p-3 text-white"
         >
-          <p>Données :</p>
+          <p>Résultat :</p>
           <pre>{{ response.details?.data }}</pre>
         </div>
       </div>
