@@ -9,6 +9,7 @@ const showDetails = ref(false);
 const response = ref({
   response: '',
   success: true,
+  details: ''
 });
 const spinnerStore = useSpinnerStore();
 
@@ -40,7 +41,7 @@ async function onSend() {
       </textarea>
       <button @click="onSend()" class="btn btn-primary mt-1">Envoyer</button>
       <div class="my-4" v-html="response.response"></div>
-      <div class="form-check form-switch">
+      <div v-if="response.details" class="form-check form-switch">
         <input
           class="form-check-input"
           type="checkbox"
@@ -48,7 +49,7 @@ async function onSend() {
           value="test"
           v-model="showDetails"
         />
-        <label class="form-check-label" for="flexSwitchCheck">Détail</label>
+        <label class="form-check-label" for="flexSwitchCheck">Détails</label>
       </div>
       <div v-if="showDetails">
         <div v-if="response.details?.sql" class="mt-3 bg-light rounded p-3">
